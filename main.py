@@ -17,9 +17,15 @@
 import os, sys
 import webapp2
 from webapp2 import Router
-import lib.httpagentparser
+from unipath import path
+import logging
+from config import *
+
 
 app = webapp2.WSGIApplication([
 	webapp2.Route(r'/', handler='handlers.siteHandler.MainHandler', name='home'),
-	webapp2.Route(r'/hola/<user>', handler='handlers.siteHandler.MainHandler', name='home', handler_method='myMethod'),
-], debug=True)
+	webapp2.Route(r'/hola/<user>', handler='handlers.siteHandler.MainHandler', name='hola', handler_method='myMethod'),
+	webapp2.Route(r'/ruta', handler='handlers.siteHandler.MainHandler', name='ruta', handler_method='ruta'),
+	webapp2.Route(r'/agente', handler='handlers.siteHandler.MainHandler', name='ruta', handler_method='agente'),
+	webapp2.Route(r'/device', handler='handlers.siteHandler.MainHandler', name='ruta', handler_method='device'),
+], debug=DEBUG_SITE)
