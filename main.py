@@ -16,9 +16,9 @@
 #
 import os, sys
 import webapp2
+import logging
 from webapp2 import Router
 from unipath import path
-import logging
 from config import *
 
 
@@ -28,4 +28,5 @@ app = webapp2.WSGIApplication([
 	webapp2.Route(r'/ruta', handler='handlers.siteHandler.MainHandler', name='ruta', handler_method='ruta'),
 	webapp2.Route(r'/agente', handler='handlers.siteHandler.MainHandler', name='ruta', handler_method='agente'),
 	webapp2.Route(r'/device', handler='handlers.siteHandler.MainHandler', name='ruta', handler_method='device'),
+	webapp2.Route(r'/os', handler='handlers.siteHandler.MainHandler', name='ruta', handler_method='opsi'),
 ], debug=DEBUG_SITE)
