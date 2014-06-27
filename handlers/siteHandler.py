@@ -12,12 +12,10 @@ from google.appengine.ext.webapp import template
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template_val = {
-        'staticF' : STATIC_FILES + '/',
+        'staticF' : STATIC_FILES,
         'title' : 'gsCitas',
-        'projectName' : 'gsCitas',
+        'projectName' : 'Gerardo Sepulveda, Citas',
         }
-        logging.warning("DEBUG VARIABLES %s", vat)
-        logging.warning("DEBUG VAR_TMP %s",template_val)
         path = os.path.join(TEMPLATE_PATH, 'index.html')
         self.response.out.write(template.render(path, template_val))
         #self.response.write("Hello World")
