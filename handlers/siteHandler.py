@@ -1,24 +1,19 @@
-import os
-import webapp2
-import logging
-from webapp2 import Router
+from config import *
 import httpagentparser
+import jinja2
+import os
+import logging
+import urllib
+import webapp2
+
+from webapp2_extras import jinja2
+from webapp2 import Router
 from ua_parser import *
 from user_agents import parse
-from config import *
 from google.appengine.ext.webapp import template
 
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        template_val = {
-        'staticF' : STATIC_FILES,
-        'title' : 'gsCitas',
-        'projectName' : 'Gerardo Sepulveda, Citas',
-        }
-        path = os.path.join(TEMPLATE_PATH, 'index.html')
-        self.response.out.write(template.render(path, template_val))
-        #self.response.write("Hello World")
     def myMethod(self,user):
         self.response.write("Hola " + user)
     def ruta(self):
