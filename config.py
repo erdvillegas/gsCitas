@@ -3,7 +3,7 @@ import logging
 import webapp2
 
 from config import *
-from unipath import Path
+from lib.unipath import Path
 from webapp2 import Router
 
 

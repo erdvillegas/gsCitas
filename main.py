@@ -19,7 +19,7 @@ import logging
 import webapp2
 
 from config import *
-from unipath import path
+from lib.unipath import path
 from webapp2 import Router
 
 
