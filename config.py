@@ -16,7 +16,22 @@ TEMPLATE_PATH = RUTA_PROYECTO.child('templates')
 STATIC_FILES = '/static/'
 
 #Error Handler
-
+def handle_404(request, response, exception):
+    logging.exception(exception)
+    template_args={
+    'Errortitulo' : 'Algo a pasado',
+    'mensaje' : 'Oops! I could swear this page was here!'
+    }
+    response.write(self.jinja2.render_template('error.html', **template_args))
+    response.set_status(404)
+def handle_500(request, response, exception):
+    logging.exception(exception)
+    template_args={
+    'Errortitulo' : 'Algo a pasado',
+    'mensaje' : 'A server error occurred!'
+    }
+    response.write(self.jinja2.render_template('error.html', **template_args))
+    response.set_status(500)
 
 #Templates Config
 
@@ -34,7 +49,7 @@ config['webapp2_extras.jinja2'] = {
         },
     'globals': {
         'url_for' : webapp2.uri_for,
-        'static' : STATIC_FILES
+        'static' : STATIC_FILES,
         },
     'filters': None,
     }

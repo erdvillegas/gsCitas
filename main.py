@@ -43,4 +43,6 @@ app = webapp2.WSGIApplication([
 	webapp2.Route(r'/panels', handler='handlers.sbHandler.SbAdmin', name='panels', handler_method='panels-wells'),
 	webapp2.Route(r'/tables', handler='handlers.sbHandler.SbAdmin', name='tables', handler_method='tables'),
 	webapp2.Route(r'/typography', handler='handlers.sbHandler.SbAdmin', name='typography', handler_method='typography'),
+	webapp2.Route(r'/error', handler='handlers.sbHandler.SbAdmin', name='error', handler_method='error'),
+	webapp2.Route(r'/exce', handler='handlers.sbHandler.SbAdmin', name='exce', handler_method='exce'),
 ], debug=DEBUG_SITE,config=config)
