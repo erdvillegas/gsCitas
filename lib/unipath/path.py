@@ -20,8 +20,8 @@ import sys
 import time
 import warnings
 
-from unipath.abstractpath import AbstractPath
-from unipath.errors import RecursionError
+from lib.unipath.abstractpath import AbstractPath
+from lib.unipath.errors import RecursionError
 
 __all__ = ["Path"]
 
