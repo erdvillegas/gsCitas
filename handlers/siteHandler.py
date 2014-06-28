@@ -1,15 +1,16 @@
-from config import *
-import httpagentparser
+#import lib.httpagentparser
 import jinja2
 import os
 import logging
 import urllib
 import webapp2
 
+from config import *
+from lib import httpagentparser
 from webapp2_extras import jinja2
 from webapp2 import Router
-from ua_parser import *
-from user_agents import parse
+from lib.ua_parser import *
+from lib.user_agents import parse
 from google.appengine.ext.webapp import template
 
 

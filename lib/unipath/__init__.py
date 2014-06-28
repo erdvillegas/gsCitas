@@ -1,8 +1,8 @@
 """unipath.py - A two-class approach to file/directory operations in Python.
 """
 
-from unipath.abstractpath import AbstractPath
-from unipath.path import Path
+from lib.unipath.abstractpath import AbstractPath
+from lib.unipath.path import Path
 
 FSPath = Path
 
