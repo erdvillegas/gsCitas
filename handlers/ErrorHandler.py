@@ -1,21 +1,26 @@
 import jinja2
 import logging
-import os
+import os, sys
 import urllib
 import webapp2
 
 
 from handlers import BaseHandler
+from lib.unipath import Path
+
+PROYECTO = Path(__file__).ancestor(2)
+RUTA = PROYECTO.child('templates')
+logging.warning("RUTA - %s",RUTA )
+TEMPLATE_ERROR = os.path.join(RUTA, 'error.html')
+logging.warning("PATH - %s",TEMPLATE_ERROR )
 
 
-JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-    extensions=['jinja2.ext.autoescape'],
-    autoescape=True)
 
 def render_error(template_values):
-	 template = JINJA_ENVIRONMENT.get_template('error.html')
-	 response.write(template.render(template_values))
+    templateLoader = jinja2.FileSystemLoader(os.path.dirname(__file__))
+    templateEnv = jinja2.Environment( loader=templateLoader )
+    template = templateEnv.get_template(TEMPLATE_ERROR)
+    outputText = template.render(templateVars)
 
 
 def handle_404(request, response, exception):
