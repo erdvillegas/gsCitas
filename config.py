@@ -3,6 +3,7 @@ import logging
 import webapp2
 
 from config import *
+from handlers import ErrorHandler
 from lib.unipath import Path
 from webapp2 import Router
 
@@ -15,23 +16,6 @@ RUTA_PROYECTO = Path(__file__).ancestor(1)
 TEMPLATE_PATH = RUTA_PROYECTO.child('templates')
 STATIC_FILES = '/static/'
 
-#Error Handler
-def handle_404(request, response, exception):
-    logging.exception(exception)
-    template_args={
-    'Errortitulo' : 'Algo a pasado',
-    'mensaje' : 'Oops! I could swear this page was here!'
-    }
-    response.write(self.jinja2.render_template('error.html', **template_args))
-    response.set_status(404)
-def handle_500(request, response, exception):
-    logging.exception(exception)
-    template_args={
-    'Errortitulo' : 'Algo a pasado',
-    'mensaje' : 'A server error occurred!'
-    }
-    response.write(self.jinja2.render_template('error.html', **template_args))
-    response.set_status(500)
 
 #Templates Config
 

@@ -1,17 +1,13 @@
 import logging
 import webapp2
-from handlers import BaseHandler
+from webapp2_extras import jinja2
 
-class ErrorHandler(webapp2.BaseHandlerAdapter):
-    def __call__(self, request, response, exception):
-        request.route_args = {}
-        request.route_args['exception'] = exception
-        handler = self.handler(request, response)
-        return handler.get()
+def handle_404(request, response, exception):
+    logging.exception(exception)
+    response.write('Oops! I could swear this page was here!')
+    response.set_status(404)
 
-class Handle404(BaseHandler):
-    def get(self):
-        self.render(filename="404.html",
-            page_title="404",
-            exception=self.request.route_args['exception']
-        )
+def handle_500(request, response, exception):
+    logging.exception(exception)
+    response.write('AUn error')
+    response.set_status(500)
