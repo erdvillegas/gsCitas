@@ -41,3 +41,8 @@ class SbAdmin(BaseHandler):
         self.render_template('tables.html')
     def typography(self):
         self.render_template('typography.html')
+    def error(self):
+        mensaje='Mensaje de prueba'
+        self.mi_error(mensaje)
+    def exce(self):
+        self.abort(404)
