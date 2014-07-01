@@ -45,4 +45,4 @@ class SbAdmin(BaseHandler):
         mensaje='Mensaje de prueba'
         self.mi_error(mensaje)
     def exce(self):
-        self.abort(404)
+        self.abort(500)

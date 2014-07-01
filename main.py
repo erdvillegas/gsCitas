@@ -19,7 +19,7 @@ import logging
 import webapp2
 
 from config import *
-from handlers.ErrorHandler import *
+from ErrorHandler import *
 from lib.unipath import path
 from routes import _routes
 from webapp2 import Router

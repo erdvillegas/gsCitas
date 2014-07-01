@@ -4,7 +4,7 @@ import main
 import webapp2
 
 from config import *
-from handlers import ErrorHandler
+import ErrorHandler
 from lib.unipath import Path
 from webapp2 import Router
 from webapp2_extras import jinja2
