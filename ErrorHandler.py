@@ -17,7 +17,7 @@ def handle_404(request, response, exception):
     logging.exception(exception)
     response.set_status(404)
     template_values ={
-    'Errortitulo' : 'Algo ha pasado ',
+    'ErrorTitulo' : 'Algo ha pasado ',
     'mensaje' : 'Oops! La pagina ya no esta por aqui'
     }
     render_error(response,template_values)
@@ -26,7 +26,7 @@ def handle_500(request, response, exception):
     logging.exception(exception)
     response.set_status(500)
     template_values ={
-    'Errortitulo' : 'Algo ha pasado ',
+    'ErrorTitulo' : 'Algo ha pasado ',
     'mensaje' : ':( Algo paso con la pagina'
     }
     render_error(response,template_values)
