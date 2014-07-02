@@ -19,16 +19,14 @@ import logging
 import webapp2
 
 from config import *
-from handlers.ErrorHandler import *
+from ErrorHandler import *
 from lib.unipath import path
 from routes import _routes
 from webapp2 import Router
-
+from webapp2_extras import jinja2
 
  
 app = webapp2.WSGIApplication(_routes, debug=DEBUG_SITE,config=config)
 
 app.error_handlers[404] = handle_404
 app.error_handlers[500] = handle_500
-
-logging.warning('DEBUG APP %s', app)

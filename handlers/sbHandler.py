@@ -18,7 +18,12 @@ class SbAdmin(BaseHandler):
     """docstring for SbAdmin"webapp2.RequestHandler"""
     def get(self):
         from webapp2 import Route
-        self.render_template('index.html')
+        template_val ={
+        'metaDescripcion' : 'Consultorio general Gerardo Sepulveda',
+        'metaKeyWords' : 'consultorio,gerardo,sepulveda',
+        'metaCreador' : 'Erik Villegas'
+        }
+        self.render_template('index.html',**template_val)
     def blank(self):
         self.render_template('blank.html')
     def buttonts(self):
@@ -36,7 +41,7 @@ class SbAdmin(BaseHandler):
     def notifications(self):
         self.render_template('notifications.html')
     def panels(self):
-        self.render_template('panels-wells')
+        self.render_template('panels-wells.html')
     def tables(self):
         self.render_template('tables.html')
     def typography(self):
@@ -45,4 +50,4 @@ class SbAdmin(BaseHandler):
         mensaje='Mensaje de prueba'
         self.mi_error(mensaje)
     def exce(self):
-        self.abort(404)
+        self.abort(500)
