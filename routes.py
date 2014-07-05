@@ -15,4 +15,8 @@ _routes = [
 	webapp2.Route(r'/login', handler='handlers.sbHandler.SbAdmin', name='login', handler_method='login'),
 	webapp2.Route(r'/error', handler='handlers.sbHandler.SbAdmin', name='error', handler_method='error'),
 	webapp2.Route(r'/exce', handler='handlers.sbHandler.SbAdmin', name='exce', handler_method='exce'),
+
+	#API Routes
+	webapp2.Route(r'/api', handler='handlers.siteHandler.MainHandler', handler_method='jsonE'),
+	webapp2.Route(r'/api/hola/<user>', handler='handlers.siteHandler.MainHandler', handler_method='holaJS'),
 ]
