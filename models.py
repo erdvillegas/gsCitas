@@ -11,7 +11,8 @@ class Persona(polymodel.PolyModel):
 	apPaterno = db.StringProperty(required=True)
 	apMaterno = db.StringProperty()
 	email = db.EmailProperty()
-    pic = db.BlobProperty()
+    pic = db.StringProperty(required=False)
+
 
 class Paciente(Persona):
 	direccion = db.PostalAddressProperty()
@@ -25,7 +26,8 @@ class Citas(db.Model):
     paciente =  db.ReferenceProperty('Paciente')
     fechaCita= db.DateProperty()
     primerCita = db.BooleanProperty()
-    comentario = db.TextProperty()
+    comentarios = db.TextProperty()
+    descripcion = db.TextProperty()
 
 class notas(db.Model):
     perfilAsociado = db.ReferenceProperty('perfil')
