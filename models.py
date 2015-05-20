@@ -19,10 +19,11 @@ class Paciente(Persona):
 	telefono = db.PhoneNumberProperty()
 	comentarioPaciente = db.TextProperty()
 
-class perfil(Persona)
+class Terapeuta(Persona)
     firma = db.StringProperty()
 
 class Citas(db.Model):
+    terapeuta = db.ReferenceProperty('Terapeuta')
     paciente =  db.ReferenceProperty('Paciente')
     fechaCita= db.DateProperty()
     primerCita = db.BooleanProperty()
@@ -30,5 +31,5 @@ class Citas(db.Model):
     descripcion = db.TextProperty()
 
 class notas(db.Model):
-    perfilAsociado = db.ReferenceProperty('perfil')
+    terapeuta = db.ReferenceProperty('Terapeuta')
     nota = db.DateProperty()

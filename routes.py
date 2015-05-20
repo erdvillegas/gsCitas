@@ -9,5 +9,5 @@ _routes = [
 	webapp2.Route(r'/login', handler='handlers.siteHandler.MainHandler', name='login', handler_method='login'),
 
 	#Rutas de servicio
-	webapp2.Route(r'/config', handler='handlers.siteHandler.ServiciosHandler', name='configuracion', handler_method='configMethod'),
+	webapp2.Route(r'/config', handler='handlers.siteHandler.ServiciosHandler', name='config', handler_method='configMethod'),
 ]

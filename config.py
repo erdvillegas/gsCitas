@@ -5,6 +5,7 @@ import webapp2
 
 from config import *
 import ErrorHandler
+from google.appengine.api import users
 from lib.unipath import Path
 from webapp2 import Router
 from webapp2_extras import jinja2
@@ -44,6 +45,7 @@ config['webapp2_extras.jinja2'] = {
     'globals': {
         'url_for' : webapp2.uri_for,
         'static' : STATIC_FILES,
+        'user' : users.get_current_user(),
         },
     'filters': None,
     }
