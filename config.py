@@ -17,6 +17,7 @@ DEBUG_SITE = True
 RUTA_PROYECTO = Path(__file__).ancestor(1)
 TEMPLATE_PATH = RUTA_PROYECTO.child('templates')
 STATIC_FILES = '/static/'
+ANGULAR_FILES = '/static/app'
 ERROR_TEMPLATE_FILE = 'error.html'
 
 #Templates Config
@@ -45,7 +46,8 @@ config['webapp2_extras.jinja2'] = {
     'globals': {
         'url_for' : webapp2.uri_for,
         'static' : STATIC_FILES,
-        'user' : users.get_current_user(),
+        'angular_files' : ANGULAR_FILES,
+        'user' : users.get_current_user()
         },
     'filters': None,
     }
