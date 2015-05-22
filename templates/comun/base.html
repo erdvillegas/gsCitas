@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% include "comun/metaSEO.html"%}
+    {% import "macros/macros.html" as macros %}
 
     <title>{% block title %}{% endblock%}</title>
 
@@ -38,13 +39,17 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            {% block contenido %}{% endblock %}
-            </div>
-            <!-- /.row -->
+
+            <div class="container-fluid">
+              <div class="row">
+                {% block contenido %}{% endblock %}
+              </div>
+            </div>            
         </div>
+            <!-- /.row -->
+    </div>
         <!-- /#page-wrapper -->
 
-    </div>
     <!-- /#wrapper -->
 
     <!-- Core Scripts - Include with every page -->
@@ -62,10 +67,6 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="{{static}}js/demo/dashboard-demo.js"></script>
-
-    <!-- Angular App -->
-    <script src="{{angular_files}}/app.js"></script>
-    <script src="{{angular_files}}/controllers/main.js"></script>
 
     {% block scripts%}{% endblock %}
     }

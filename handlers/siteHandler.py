@@ -47,5 +47,5 @@ class ServiciosHandler(BaseHandler):
             'SitioActivado' : config.get("configuraciones.Acciones","SitioActivado"),
             'AgendaLlena' : config.get("configuraciones.Acciones","AgendaLlena")
         }
-        logging.info("Obteniendo configuraciones %s",configuraciones)
-        self.renderJson(configuraciones)
+        logging.info("Configuraciones actuales: %s",configuraciones)
+        self.render_template("config.html",**configuraciones)
