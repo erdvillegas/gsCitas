@@ -49,3 +49,5 @@ class ServiciosHandler(BaseHandler):
         }
         logging.info("Configuraciones actuales: %s",configuraciones)
         self.render_template("config.html",**configuraciones)
+    def citasMethod(self):
+        self.render_template("citas.html")

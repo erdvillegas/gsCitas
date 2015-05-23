@@ -1,0 +1,29 @@
+{% extends "comun/base.html" %}
+{% block title %}Gerardo Sepulveda{% endblock %}
+{% block tituloseccion %} Citas {% endblock %}
+{% block botonesAccion %}
+    
+{% endblock %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-6 col-lg-12">
+            <div id='calendar'></div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block scripts}
+<script>
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+    })
+
+});
+</script>
+{% endblock }

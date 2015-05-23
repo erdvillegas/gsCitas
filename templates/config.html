@@ -1,6 +1,10 @@
 {% extends "comun/base.html" %}
 {% block title %}Gerardo Sepulveda{% endblock %}
 {% block tituloseccion %} Configuraciones - Usuario {% endblock %}
+{% block botonesAccion %}
+    <button type="button" class="btn btn-primary btn-lg btn-block">Enviar Formulario</button>
+{% endblock %}
+
 {% block contenido %}
     <div class="row">
         <!-- Informacion del perfil -->
@@ -25,10 +29,8 @@
                       <input type="text" class="form-control" placeholder="Email" aria-describedby="sizing-addon2">
                     </div>
                     <br/>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label >Firma</label><br/>
+                    <div class="input-group">
+                      <label>Firma</label><br/>
                         <textarea id="firma">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore itaque aperiam libero! Expedita nam dignissimos a, esse obcaecati minus, asperiores iste eius alias dicta optio debitis explicabo sunt animi suscipit.
                       </textarea>
@@ -45,7 +47,7 @@
 
                     <!-- Agenda -->
                     <div class="col-md-6">
-                        <h3>Horarios disponibles</h3>
+                        <h3 class="text-center">Horarios disponibles</h3>
                         <div class="row">
                             <div class="col-md-4">
                                 <label>
@@ -125,7 +127,7 @@
                     <!-- Opciones del sitio -->
                     <div class="col-md-6">
                         <div class="checkbox">
-                        <h3>Opciones del sitio</h3>
+                        <h3 class="text-center">Opciones del sitio</h3>
                           <label>
                             <input type="checkbox" checked="{{EnviarEmail}}" id="enviarEmail">
                                 Enviar de Email
