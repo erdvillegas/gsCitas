@@ -1,54 +1,114 @@
 {% extends "comun/base.html" %}
 {% block title %}Gerardo Sepulveda{% endblock %}
 {% block tituloseccion %} Pr&oacute;ximas citas {% endblock %}
+{% block botonesAccion %}
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary">Nuevo paciente</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary">Nueva cita</button>
+      </div>
+    </div>
+{% endblock %}
 {% block contenido %}
 
-<link href="{{static}}css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <table id="citas" class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Paciente</th>
-                <th>D&iacute;a</th>
-                <th>Hora</th>
-                <th>Es primer cita</th>
-            </tr>
-        </thead>
- 
-        <tfoot>
-            <tr>
-                <th>Paciente</th>
-                <th>D&iacute;a</th>
-                <th>Hora</th>
-                <th>Es primer cita</th>
-            </tr>
-        </tfoot>
- 
-        <tbody>
-            <tr>
-                <td>Michael Bruce</td>
-                <td>Analista UV</td>
-                <td>22:50</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Analista UV</td>
-                <td>2250</td>
-                <td>SI</td>
-            </tr>
-        </tbody>
-    </table>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-3">
+                          <i class="fa fa-calendar fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                          <div class="huge">17:00</div>
+                          <div>Luis Hernandez</div>
+                      </div>
+                  </div>
+              </div>
+              <a href="{{url_for('detalles_paciente',pacienteID=1)}}" target="_blank">
+                  <div class="panel-footer">
+                      <span class="pull-left">M&aacute;s detalles</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </a>
+          </div>
         </div>
-    </div>
+        <div class="col-lg-3">
+          <div class="panel panel-info">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-3">
+                          <i class="fa fa-calendar fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                          <div class="huge">17:30</div>
+                          <div>Daniel Villegas</div>
+                      </div>
+                  </div>
+              </div>
+              <a href="{{url_for('detalles_paciente',pacienteID=1)}}" target="_blank">
+                  <div class="panel-footer">
+                      <span class="pull-left">M&aacute;s detalles</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="panel panel-warning">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-3">
+                          <i class="fa fa-calendar fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                          <div class="huge">18:00</div>
+                          <div>Perla Sanchez</div>
+                      </div>
+                  </div>
+              </div>
+              <a href="{{url_for('detalles_paciente',pacienteID=1)}}" target="_blank">
+                  <div class="panel-footer">
+                      <span class="pull-left">M&aacute;s detalles</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="panel panel-danger">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-3">
+                          <i class="fa fa-calendar fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                          <div class="huge">18:30</div>
+                          <div>Perla Marroquin</div>
+                      </div>
+                  </div>
+              </div>
+              <a href="{{url_for('detalles_paciente',pacienteID=1)}}" target="_blank">
+                  <div class="panel-footer">
+                      <span class="pull-left">M&aacute;s detalles</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </a>
+          </div>
+        </div>
+      </div>
 
     <div class="row">
-        <div class="col-md-12">
-            <h3>Mis estadisticas</h3>
-            <div class="panel panel-default">
-            <div id="myfirstchart" style="height: 250px;"></div>  
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div id="calendar_basic"></div>
         </div>
     </div>
 {% endblock %}
@@ -67,29 +127,42 @@
                 }
         });
     });
-
-    new Morris.Line({
-      // ID of the element in which to draw the chart.
-      element: 'myfirstchart',
-      // Chart data records -- each entry in this array corresponds to a point on
-      // the chart.
-      data: [
-        { year: '2008', value: 20 },
-        { year: '2009', value: 10 },
-        { year: '2010', value: 5 },
-        { year: '2011', value: 5 },
-        { year: '2012', value: 20 }
-      ],
-      // The name of the data record attribute that contains x-values.
-      xkey: 'year',
-      // A list of names of data record attributes that contain y-values.
-      ykeys: ['value'],
-      // Labels for the ykeys -- will be displayed when you hover over the
-      // chart.
-      labels: ['Value']
-    });
 </script>
 
-<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"/>
-<script src="{{static}}js/plugins/dataTables/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["calendar"]});
+      google.setOnLoadCallback(drawChart);
+
+   function drawChart() {
+       var dataTable = new google.visualization.DataTable();
+       dataTable.addColumn({ type: 'date', id: 'Date' });
+       dataTable.addColumn({ type: 'number', id: 'Won/Loss' });
+       dataTable.addRows([
+          [ new Date(2012, 3, 13), 37032 ],
+          [ new Date(2012, 3, 14), 38024 ],
+          [ new Date(2012, 3, 15), 38024 ],
+          [ new Date(2012, 3, 16), 38108 ],
+          [ new Date(2012, 3, 17), 38229 ],
+          // Many rows omitted for brevity.
+          [ new Date(2013, 9, 4), 38177 ],
+          [ new Date(2013, 9, 5), 38705 ],
+          [ new Date(2013, 9, 12), 38210 ],
+          [ new Date(2013, 9, 13), 38029 ],
+          [ new Date(2013, 9, 19), 38823 ],
+          [ new Date(2013, 9, 23), 38345 ],
+          [ new Date(2013, 9, 24), 38436 ],
+          [ new Date(2013, 9, 30), 38447 ]
+        ]);
+
+       var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
+
+       var options = {
+         title: "Historico de citas",
+         height: 350,
+       };
+
+       chart.draw(dataTable, options);
+   }
+    </script>
 {% endblock %}

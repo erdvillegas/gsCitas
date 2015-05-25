@@ -1,0 +1,15 @@
+{% extends "comun/base.html" %}
+{% block title %}Gerardo Sepulveda{% endblock %}
+{% block tituloseccion %} Configuraciones - Usuario {% endblock %}
+{% block botonesAccion %}
+    <button type="button" class="btn btn-primary btn-lg btn-block">Enviar Formulario</button>
+{% endblock %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          {% include "comun/Informacion_de_usuario.html" %}
+        </div>
+    </div>
+
+{% endblock %}

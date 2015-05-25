@@ -1,0 +1,70 @@
+{% extends "comun/base.html" %}
+{% block title %}Pacientes{% endblock %}
+{% block tituloseccion %} Mis pacientes {% endblock %}
+{% block contenido %}
+
+<link href="{{static}}css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+<link href="{{static}}css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table id="citas" class="table table-bordered table-hover">
+              <thead>
+                  <tr>
+                      <th><p class="text-center">Foto</p></th>
+                      <th><p class="text-center">Paciente</p></th>
+                      <th><p class="text-center">D&iacute;a</p></th>
+                      <th><p class="text-center">Hora</p></th>
+                      <th><p class="text-center">Es primer cita</p></th>
+                  </tr>
+              </thead>
+       
+              <tfoot>
+                  <tr>
+                      <th><p class="text-center">Foto</p></th>
+                      <th><p class="text-center">Paciente</p></th>
+                      <th><p class="text-center">D&iacute;a</p></th>
+                      <th><p class="text-center">Hora</p></th>
+                      <th><p class="text-center">Es primer cita</p></th>
+                  </tr>
+              </tfoot>
+       
+              <tbody>
+                  <tr>
+                      <td><img src="http://lorempixel.com/150/215/people" class="img-rounded" alt=""></td>
+                      <td><a href="{{url_for('detalles_paciente',pacienteID=1)}}"><p class="text-center">Michael Bruce</p></a></td>
+                      <td><p class="text-center">Analista UV</p></td>
+                      <td><p class="text-center">22:50</p></td>
+                      <td><p class="text-center">No</p></td>
+                  </tr>
+                  <tr>
+                      <td><img src="http://lorempixel.com/150/215/people" class="img-rounded" alt=""></td>
+                      <td><p class="text-center">Donna Snider</p></td>
+                      <td><p class="text-center">Analista UV</p></td>
+                      <td><p class="text-center">2250</p></td>
+                      <td><p class="text-center">SI</p></td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"/>
+  <script src="{{static}}js/plugins/dataTables/dataTables.bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#citas').DataTable({
+                responsive: true,
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ records por página",
+                    "zeroRecords": "No se encotraron registros - disculpa",
+                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay información disponible",
+                    "infoFiltered": "(filtrado de _MAX_ total records)"
+                }
+        });
+    });
+</script>
+{% endblock %}

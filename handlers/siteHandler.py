@@ -25,6 +25,12 @@ class MainHandler(BaseHandler):
 
 
 class ServiciosHandler(BaseHandler):
+    def perfilMethod(self):
+        self.render_template("perfil.html")
+    def pacientesMethod(self):
+        self.render_template("pacientes.html")
+    def citasMethod(self):
+        self.render_template("citas.html")
     def configMethod(self):
         config = ConfigParser()
         config.read("config.ini")
@@ -49,5 +55,8 @@ class ServiciosHandler(BaseHandler):
         }
         logging.info("Configuraciones actuales: %s",configuraciones)
         self.render_template("config.html",**configuraciones)
-    def citasMethod(self):
-        self.render_template("citas.html")
+
+class SchedulerHandler(BaseHandler):
+    def detallePacienteMethod(self,pacienteID):
+        logging.info("PacienteID recibido: %s",pacienteID)
+        self.render_template("detalle_paciente.html")
