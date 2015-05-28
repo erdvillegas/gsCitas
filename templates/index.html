@@ -14,7 +14,7 @@
 {% block contenido %}
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
+    <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3">
           <div class="panel panel-primary">
@@ -105,6 +105,7 @@
           </div>
         </div>
       </div>
+    </div>
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -114,21 +115,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
-    $(document).ready(function() {
-        $('#citas').DataTable({
-                responsive: true,
-                "language": {
-                    "lengthMenu": "Mostrar _MENU_ records por página",
-                    "zeroRecords": "No se encotraron registros - disculpa",
-                    "info": "Mostrando página _PAGE_ de _PAGES_",
-                    "infoEmpty": "No hay información disponible",
-                    "infoFiltered": "(filtrado de _MAX_ total records)"
-                }
-        });
-    });
-</script>
-
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1.1", {packages:["calendar"]});

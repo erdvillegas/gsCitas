@@ -32,28 +32,30 @@
         {% include "comun/headerbar.html" %}
 
         <div id="page-wrapper">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <h1 class="page-header">{% block tituloseccion %}{% endblock %}</h1>
-                </div>
-                <!-- Botones de accion -->
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <br/>
-                    {% block botonesAccion %}{% endblock %}
-                </div>
-                <!-- Botones de acion end -->
-                
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-
             <div class="container-fluid">
-              <div class="row">
-                {% block contenido %}{% endblock %}
-              </div>
-            </div>            
-        </div>
-            <!-- /.row -->
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <h1 class="page-header">{% block tituloseccion %}{% endblock %}</h1>
+                    </div>
+                    <!-- Botones de accion -->
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <br/>
+                        {% block botonesAccion %}{% endblock %}
+                    </div>
+                    <!-- Botones de acion end -->
+                    
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+
+                <div class="container-fluid">
+                  <div class="row">
+                    {% block contenido %}{% endblock %}
+                  </div>
+                </div>            
+            </div>
+        </div >
+                <!-- /.row -->
     </div>
         <!-- /#page-wrapper -->
 
@@ -76,4 +78,4 @@
     
 </body>
 
-</html>     
+</html>

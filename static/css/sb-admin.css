@@ -1,10 +1,10 @@
 /* Global Styles */
 
 /* ------------------------------- */
-
 body {
     padding-top: 100px;
     background-color: #f8f8f8;
+    font-size: 140%;
 }
 
 @media(min-width:768px) {
