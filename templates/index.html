@@ -2,6 +2,7 @@
 {% block title %}Gerardo Sepulveda{% endblock %}
 {% block tituloseccion %} Pr&oacute;ximas citas {% endblock %}
 {% block botonesAccion %}
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-primary">Nuevo paciente</button>
@@ -10,10 +11,12 @@
         <button type="button" class="btn btn-primary">Nueva cita</button>
       </div>
     </div>
+  </div>
 {% endblock %}
 {% block contenido %}
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <br/>
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3">
@@ -108,7 +111,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
             <div id="calendar_basic"></div>
         </div>
     </div>
